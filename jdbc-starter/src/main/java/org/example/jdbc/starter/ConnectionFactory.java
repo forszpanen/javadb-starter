@@ -17,7 +17,8 @@ public class ConnectionFactory {
             /**
              * Pobieramy zawartość pliku za pomocą classloadera, plik musi znajdować się w katalogu ustawionym w CLASSPATH
              */
-            InputStream propertiesStream = ConnectionFactory.class.getResourceAsStream(filename);
+            ClassLoader classLoader = this.getClass().getClassLoader();
+            InputStream propertiesStream = classLoader.getResourceAsStream(filename);
             if(propertiesStream == null) {
                 throw new IllegalArgumentException("Can't find file: " + filename);
             }
