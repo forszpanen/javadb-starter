@@ -44,22 +44,25 @@ public class ConnectionViaDriverManager {
         /**
          * Używamy konstrukcji try-with-resources dostępnej od Java 7 do otworzenia i zamknięcia połączenia z bazą danych
          */
-        try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)){
-            logger.info("Connected database successfully...");
-
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
             /**
              * Krok 3: Pobieramy informacje o bazie danych i połączeniu
              */
             logger.info("Connection = " + connection);
             logger.info("Database name = " + connection.getCatalog());
         } catch (SQLException e) {
-            /**
-             * Krok 4: Obsługa wyjątków które mogą pojawić się w trakcie pracy z bazą danych
-             */
             logger.error("Error during using connection", e);
+        } finally {
+            /**
+             * Krok 5: Zawsze zamykamy połączenie po skończonej pracy!
+             */
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                logger.error("Error during closing connection");
+            }
         }
-        /**
-         * Krok 5: Zawsze zamykamy połączenie po skończonej pracy! - tutaj w sposób niejawny przez mechanizm try-with-resource
-         */
     }
 }
