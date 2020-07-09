@@ -3,9 +3,9 @@
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS library.users (
   id INT NOT NULL AUTO_INCREMENT,
-  login VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
-  password VARCHAR(45) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
-  name VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  login VARCHAR(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
+  password VARCHAR(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
+  name VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
   admin BOOLEAN NOT NULL,
 PRIMARY KEY (id))
   ENGINE = InnoDB;
@@ -15,7 +15,7 @@ PRIMARY KEY (id))
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS library.categories (
   id INT NOT NULL AUTO_INCREMENT,
-  name VARCHAR(200) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  name VARCHAR(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
 PRIMARY KEY (id))
   ENGINE = InnoDB;
 
@@ -25,8 +25,8 @@ PRIMARY KEY (id))
 CREATE TABLE IF NOT EXISTS library.books (
   id INT NOT NULL AUTO_INCREMENT,
   category_id INT NOT NULL,
-  title VARCHAR(200) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
-  author VARCHAR(70) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  title VARCHAR(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
+  author VARCHAR(70) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
 PRIMARY KEY (id),
 FOREIGN KEY (category_id)
 REFERENCES library.categories(id)

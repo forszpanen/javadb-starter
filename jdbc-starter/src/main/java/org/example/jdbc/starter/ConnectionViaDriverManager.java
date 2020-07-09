@@ -41,9 +41,6 @@ public class ConnectionViaDriverManager {
          */
         logger.info("Connecting to a selected database...");
 
-        /**
-         * Używamy konstrukcji try-with-resources dostępnej od Java 7 do otworzenia i zamknięcia połączenia z bazą danych
-         */
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
