@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
 
-    <changeSet id="create_table_courses" author="Jaroslaw_Skarzynski">
+    <changeSet id="create_table_courses" author="Adam_Lagoda">
         <createTable tableName="courses">
             <column name="id" type="INT" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="PK_courses"/>
@@ -17,21 +17,21 @@
         </createTable>
     </changeSet>
 
-    <changeSet id="populate_table_courses" author="Jaroslaw_Skarzynski">
+    <changeSet id="populate_table_courses" author="Adam_Lagoda">
         <preConditions>
             <tableExists tableName="courses" />
         </preConditions>
         <insert tableName="courses">
-            <column name="name">JavaGda5</column>
-            <column name="place">Gdansk</column>
-            <column name="start_date">2017-10-01</column>
-            <column name="end_date">2018-06-01</column>
+            <column name="name">JavaPoz22</column>
+            <column name="place">Poznań</column>
+            <column name="start_date">2020-01-01</column>
+            <column name="end_date">2020-09-01</column>
         </insert>
         <insert tableName="courses">
-            <column name="name">JavaGda7</column>
-            <column name="place">Gdansk</column>
-            <column name="start_date">2018-01-01</column>
-            <column name="end_date">2018-09-15</column>
+            <column name="name">JavaPoz21</column>
+            <column name="place">Poznań</column>
+            <column name="start_date">2019-06-01</column>
+            <column name="end_date">2020-03-01</column>
         </insert>
         <insert tableName="courses">
             <column name="name">JavaGda11</column>
@@ -45,7 +45,7 @@
         </insert>
     </changeSet>
 
-    <changeSet id="create_table_students" author="Jaroslaw_Skarzynski">
+    <changeSet id="create_table_students" author="Adam_Lagoda">
         <createTable tableName="students">
             <column name="id" type="INT" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="PK_courses"/>
@@ -59,7 +59,7 @@
                                  referencedTableName="courses" referencedColumnNames="id" />
     </changeSet>
 
-    <changeSet id="create_table_attendance_list" author="Jaroslaw_Skarzynski">
+    <changeSet id="create_table_attendance_list" author="Adam_Lagoda">
         <createTable tableName="attendance_list">
             <column name="id" type="INT" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="PK_courses"/>

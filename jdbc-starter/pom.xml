@@ -12,49 +12,6 @@
     <artifactId>jdbc-starter</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <dependencies>
-        <!-- sterownik JDBC do bazy MySql -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.11</version>
-        </dependency>
-        <!-- biblioteka/narzędzie do logowania(zapisywania) komunikatów z poziomu kodu w trakcie działania programu -->
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.2.3</version>
-        </dependency>
-    </dependencies>
-
-    <profiles>
-        <profile>
-            <id>run-liquibase</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <!-- biblioteka/narzędzie do zarządzanie struktuę bazy danych -->
-                        <groupId>org.liquibase</groupId>
-                        <artifactId>liquibase-maven-plugin</artifactId>
-                        <version>3.10.1</version>
-                        <configuration>
-                            <propertyFile>liquibase/liquibase.properties</propertyFile>
-                            <propertyFileWillOverride>true</propertyFileWillOverride>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>update-db</id>
-                                <phase>process-resources</phase>
-                                <goals>
-                                    <goal>update</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
     <build>
         <resources>
             <resource>
