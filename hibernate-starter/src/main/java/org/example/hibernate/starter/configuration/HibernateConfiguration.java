@@ -47,6 +47,7 @@ public class HibernateConfiguration {
              * Krok 4: kończymy transakcję - wszystkie dane powinny być zapisane w bazie
              */
             transaction.commit();
+            session.close();
 
             /**
              * Krok 5: niejawnie zamykamy: sessionFactory i session
