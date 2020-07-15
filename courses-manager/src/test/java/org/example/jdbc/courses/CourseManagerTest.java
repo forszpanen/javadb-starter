@@ -22,19 +22,19 @@ public class CourseManagerTest {
         connectionFactory = new ConnectionFactory(DATABASE_FILE_NAME);
     }
 
-    @Test
-    public void testInsertStudent() throws SQLException {
-        String countStudentsQuery = "SELECT COUNT(*) FROM students;";
-        try (Connection connection = connectionFactory.getConnection();
-             Statement statement = connection.createStatement()) {
-            ResultSet studentsNumResultSet = statement.executeQuery(countStudentsQuery);
-            studentsNumResultSet.next();
-            int studentsNumBefore = studentsNumResultSet.getInt(1);
-            underTest.insertStudent("Jan Kowalski", 1, "Aktualnie fryzjer", "17.C");
-            studentsNumResultSet = statement.executeQuery(countStudentsQuery);
-            studentsNumResultSet.next();
-            int studentsNumAfter = studentsNumResultSet.getInt(1);
-            Assert.assertEquals(studentsNumBefore, studentsNumAfter - 1);
-        }
-    }
+//    @Test
+//    public void testInsertStudent() throws SQLException {
+//        String countStudentsQuery = "SELECT COUNT(*) FROM students;";
+//        try (Connection connection = connectionFactory.getConnection();
+//             Statement statement = connection.createStatement()) {
+//            ResultSet studentsNumResultSet = statement.executeQuery(countStudentsQuery);
+//            studentsNumResultSet.next();
+//            int studentsNumBefore = studentsNumResultSet.getInt(1);
+//            underTest.insertStudent("Jan Kowalski", 1, "Aktualnie fryzjer", "17.C");
+//            studentsNumResultSet = statement.executeQuery(countStudentsQuery);
+//            studentsNumResultSet.next();
+//            int studentsNumAfter = studentsNumResultSet.getInt(1);
+//            Assert.assertEquals(studentsNumBefore, studentsNumAfter - 1);
+//        }
+//    }
 }

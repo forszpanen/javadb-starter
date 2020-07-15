@@ -12,6 +12,7 @@
         <module>jdbc-starter</module>
         <module>library-manager</module>
         <module>courses-manager</module>
+        <module>hibernate-starter</module>
     </modules>
 
     <dependencies>
