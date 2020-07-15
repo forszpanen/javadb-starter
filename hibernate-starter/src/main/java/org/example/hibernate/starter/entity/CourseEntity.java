@@ -14,6 +14,9 @@ public class CourseEntity {
     private Date startDate;
     private Date endDate;
 
+    private CourseEntity() {
+    }
+
     public CourseEntity(String name, String place, Date startDate, Date endDate) {
 
         this.name = name;
