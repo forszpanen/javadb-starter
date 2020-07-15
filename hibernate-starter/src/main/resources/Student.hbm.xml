@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.example.hibernate.starter">
+    <class name="org.example.hibernate.starter.entity.Student" table="students">
+        <id name="id" column="student_id" access="property">
+            <generator class="identity"/>
+        </id>
+        <property name="name" type="string" access="property" column="student_name"/>
+        <property name="courseId" type="int" access="property" column="course_id"/>
+        <property name="description" type="string" access="property" column="description"/>
+        <property name="seat" type="string" access="property" column="seat"/>
+    </class>
+</hibernate-mapping>

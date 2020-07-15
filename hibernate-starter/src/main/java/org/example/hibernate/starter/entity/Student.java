@@ -14,6 +14,10 @@ public class Student {
         this.seat = seat;
     }
 
+    public Student() {
+
+    }
+
     public int getId() {
         return id;
     }
@@ -32,6 +36,26 @@ public class Student {
 
     public String getSeat() {
         return seat;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCourseId(Integer courseId) {
+        this.courseId = courseId;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setSeat(String seat) {
+        this.seat = seat;
     }
 
     @Override

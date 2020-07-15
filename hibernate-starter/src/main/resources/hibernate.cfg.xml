@@ -27,5 +27,6 @@
 
         <!-- lista plików ze szczegółami mapowania klas do bazy danych -->
         <mapping resource="Course.hbm.xml"/>
+        <mapping resource="Student.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
