@@ -1,6 +1,7 @@
 package org.example.jpa.starter.lifecycle;
 
 import org.example.jpa.starter.Utils;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -9,8 +10,11 @@ import java.util.Date;
 @Table(name = "courses")
 public class CourseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "course_id")
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
     private int id;
+    @Column(name = "course_name")
     private String name;
     private String place;
     @Column(name = "start_date", nullable = false)

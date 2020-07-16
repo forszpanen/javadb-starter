@@ -2,8 +2,8 @@ package org.example.jpa.starter.queries;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pl.sda.jpa.starter.queries.entities.CourseEntity;
-import pl.sda.jpa.starter.queries.entities.EntitiesLoader;
+import org.example.jpa.starter.queries.entities.CourseEntity;
+import org.example.jpa.starter.queries.entities.EntitiesLoader;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -17,7 +17,7 @@ public class CourseEntityDaoExt {
     private EntityManagerFactory entityManagerFactory;
 
     public CourseEntityDaoExt() {
-        entityManagerFactory = Persistence.createEntityManagerFactory("pl.sda.jpa.starter.queries");
+        entityManagerFactory = Persistence.createEntityManagerFactory("org.example.jpa.starter.queries");
     }
 
     public EntityManagerFactory getEntityManagerFactory() {

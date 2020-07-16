@@ -1,8 +1,8 @@
 package org.example.jpa.starter.inheritance;
 
+import org.example.jpa.starter.queries.JpaQueries;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pl.sda.jpa.starter.queries.JpaQueries;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,7 +15,7 @@ public class JpaInheritance {
     private EntityManagerFactory entityManagerFactory;
 
     public JpaInheritance() {
-        entityManagerFactory = Persistence.createEntityManagerFactory("pl.sda.jpa.starter.inheritance");
+        entityManagerFactory = Persistence.createEntityManagerFactory("org.example.jpa.starter.inheritance");
     }
 
     public EntityManagerFactory getEntityManagerFactory() {

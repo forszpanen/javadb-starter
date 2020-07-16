@@ -12,7 +12,7 @@ public class JpaRelations {
     private EntityManagerFactory entityManagerFactory;
 
     public JpaRelations() {
-        entityManagerFactory = Persistence.createEntityManagerFactory("pl.sda.jpa.starter.org.example.jpa.starter.relations");
+        entityManagerFactory = Persistence.createEntityManagerFactory("org.example.jpa.starter.org.example.jpa.starter.relations");
     }
 
     public void close() {

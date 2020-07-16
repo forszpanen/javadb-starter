@@ -2,10 +2,10 @@ package org.example.jpa.starter.queries;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pl.sda.jpa.starter.queries.entities.CourseEntity;
-import pl.sda.jpa.starter.queries.entities.CourseInfo;
-import pl.sda.jpa.starter.queries.entities.EntitiesLoader;
-import pl.sda.jpa.starter.queries.entities.StudentEntity;
+import org.example.jpa.starter.queries.entities.CourseEntity;
+import org.example.jpa.starter.queries.entities.CourseInfo;
+import org.example.jpa.starter.queries.entities.EntitiesLoader;
+import org.example.jpa.starter.queries.entities.StudentEntity;
 
 import javax.persistence.*;
 import java.util.Arrays;
@@ -17,7 +17,7 @@ public class JpaQueries {
     private EntityManagerFactory entityManagerFactory;
 
     public JpaQueries() {
-        entityManagerFactory = Persistence.createEntityManagerFactory("pl.sda.jpa.starter.queries");
+        entityManagerFactory = Persistence.createEntityManagerFactory("org.example.jpa.starter.queries");
     }
 
     public EntityManagerFactory getEntityManagerFactory() {
@@ -76,7 +76,7 @@ public class JpaQueries {
             /**
              *  zawężamy tylko do kursów z Sopotu i wrzucamy dane do obiektu CourseInfo
              */
-            List<CourseInfo> courseInfoList = entityManager.createQuery("SELECT new pl.sda.jpa.starter.queries.entities.CourseInfo(c.name, c.place) FROM CourseEntity c WHERE c.place = :place", CourseInfo.class)
+            List<CourseInfo> courseInfoList = entityManager.createQuery("SELECT new org.example.jpa.starter.queries.entities.CourseInfo(c.name, c.place) FROM CourseEntity c WHERE c.place = :place", CourseInfo.class)
                     .setParameter("place", "Sopot")
                     .getResultList();
             printList(courseInfoList);

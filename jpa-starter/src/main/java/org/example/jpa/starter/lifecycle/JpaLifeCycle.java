@@ -16,7 +16,7 @@ public class JpaLifeCycle {
     private EntityManagerFactory entityManagerFactory;
 
     public JpaLifeCycle() {
-        entityManagerFactory = Persistence.createEntityManagerFactory("pl.sda.jpa.starter.lifecycle");
+        entityManagerFactory = Persistence.createEntityManagerFactory("org.example.jpa.starter.lifecycle");
     }
 
     public void close() {
@@ -74,6 +74,7 @@ public class JpaLifeCycle {
              * Pobieramy jedną encję po id z bazy danych
              */
             CourseEntity javaGda11FromDb = entityManager.find(CourseEntity.class, javaGda11.getId());
+
             /**
              * Czy encja pobrana z bazy to ta sama encja którą dodaliśmy wcześniej ?
              */
@@ -125,7 +126,7 @@ public class JpaLifeCycle {
 
     public static void main(String[] args) {
         /**
-         * Inicjalizujemy EntityManagerFactory (w konstruktorze), a tym samym inicjalizujemy Persistence Unit o nazwie: 'pl.sda.jpa.starter.lifecycle'
+         * Inicjalizujemy EntityManagerFactory (w konstruktorze), a tym samym inicjalizujemy Persistence Unit o nazwie: 'org.example.jpa.starter.lifecycle'
          */
         JpaLifeCycle jpaLifeCycle = new JpaLifeCycle();
         try {
