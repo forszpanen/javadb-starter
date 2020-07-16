@@ -40,6 +40,7 @@
         <class>org.example.jpa.starter.relations.AddressEntity</class>
         <class>org.example.jpa.starter.relations.SkillEntity</class>
         <class>org.example.jpa.starter.relations.CourseEntity</class>
+        <class>org.example.jpa.starter.relations.SeatEntity</class>
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 

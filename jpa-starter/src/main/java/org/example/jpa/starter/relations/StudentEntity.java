@@ -11,7 +11,6 @@ public class StudentEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private String seat;
 
     @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "add_id")
@@ -23,17 +22,27 @@ public class StudentEntity {
     @ManyToOne(cascade = {CascadeType.ALL})
     private CourseEntity course;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
-    @JoinTable(name = "students_skills",
-            joinColumns = {@JoinColumn(name ="student_id")},
-            inverseJoinColumns = {@JoinColumn(name ="skill_id")})
+    @ManyToMany(mappedBy = "students", cascade = CascadeType.PERSIST)
     private Set<SkillEntity> skills = new HashSet<>();
+
+    @OneToOne(cascade = {CascadeType.ALL})
+    private SeatEntity seat;
 
     protected StudentEntity() {
     }
 
     public StudentEntity(String name) {
         this.name = name;
+    }
+
+    public SeatEntity getSeat() {
+        return seat;
+    }
+
+    public void setSeat(SeatEntity seat) {
+        this.seat = seat;
+
+        seat.setStudent(this);
     }
 
     public int getId() {
@@ -46,14 +55,6 @@ public class StudentEntity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getSeat() {
-        return seat;
-    }
-
-    public void setSeat(String seat) {
-        this.seat = seat;
     }
 
     public AddressEntity getAddress() {
@@ -80,10 +81,6 @@ public class StudentEntity {
         return skills;
     }
 
-    public void addSkill(SkillEntity skill) {
-        skills.add(skill);
-    }
-
     @Override
     public String toString() {
         return "StudentEntity{" +
@@ -91,7 +88,13 @@ public class StudentEntity {
                 ", name='" + name + '\'' +
                 ", skills='" + skills + '\'' +
                 ", address=" + address +
+                ", seat=" + seat +
                 ", course=" + ((course == null) ? "brak" : course.getName()) +
                 '}';
+    }
+
+    public void addSkill(SkillEntity skill) {
+        skill.addStudent(this);
+        skills.add(skill);
     }
 }
