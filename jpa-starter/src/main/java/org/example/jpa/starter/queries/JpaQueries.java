@@ -178,9 +178,9 @@ public class JpaQueries {
     public static void main(String[] args) {
         JpaQueries jpaQueries = new JpaQueries();
         try {
-            //EntitiesLoader.fillDataBase(jpaQueries.getEntityManagerFactory());
-            //jpaQueries.simpleQuery();
-            //jpaQueries.relationsQuery();
+            EntitiesLoader.fillDataBase(jpaQueries.getEntityManagerFactory());
+            jpaQueries.simpleQuery();
+//            jpaQueries.relationsQuery();
         } catch (Exception e) {
             logger.error("", e);
         } finally {
