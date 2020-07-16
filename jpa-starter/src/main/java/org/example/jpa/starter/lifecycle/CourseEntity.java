@@ -13,7 +13,7 @@ public class CourseEntity {
     @Column(name = "course_id")
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
-    private int id;
+    private Integer id;
     @Column(name = "course_name")
     private String name;
     private String place;
@@ -31,7 +31,7 @@ public class CourseEntity {
         this.endDate = endDate;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
