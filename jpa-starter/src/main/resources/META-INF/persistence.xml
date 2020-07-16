@@ -57,11 +57,6 @@
     </persistence-unit>
 
     <persistence-unit name="org.example.jpa.starter.queries">
-        <class>org.example.jpa.starter.queries.entities.StudentEntity</class>
-        <class>org.example.jpa.starter.queries.entities.SeatEntity</class>
-        <class>org.example.jpa.starter.queries.entities.AddressEntity</class>
-        <class>org.example.jpa.starter.queries.entities.SkillEntity</class>
-        <class>org.example.jpa.starter.queries.entities.CourseEntity</class>
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
