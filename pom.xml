@@ -13,6 +13,7 @@
         <module>library-manager</module>
         <module>courses-manager</module>
         <module>hibernate-starter</module>
+        <module>jpa-starter</module>
     </modules>
 
     <dependencies>
@@ -20,7 +21,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.11</version>
+            <version>8.0.20</version>
         </dependency>
         <!-- biblioteka/narzędzie do logowania(zapisywania) komunikatów z poziomu kodu w trakcie działania programu -->
         <dependency>
