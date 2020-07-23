@@ -13,10 +13,10 @@ import java.util.Properties;
 public class ConnectionFactory {
     private static Logger logger = LoggerFactory.getLogger(ConnectionFactory.class);
 
-    private final Properties properties;
+    private Properties properties;
 
     public ConnectionFactory(String filename) {
-        this.properties = getDataBaseProperties(filename);
+        //this.properties = getDataBaseProperties(filename);
     }
 
     private Properties getDataBaseProperties(String filename) {
@@ -44,15 +44,9 @@ public class ConnectionFactory {
 
     public Connection getConnection() throws SQLException {
         MysqlDataSource dataSource = new MysqlDataSource();
-        dataSource.setServerName(properties.getProperty("org.example.jdbc.starter.server"));
-        dataSource.setDatabaseName(properties.getProperty("org.example.jdbc.starter.name"));
-        dataSource.setUser(properties.getProperty("org.example.jdbc.starter.user"));
-        dataSource.setPassword(properties.getProperty("org.example.jdbc.starter.password"));
-        dataSource.setPort(Integer.valueOf(properties.getProperty("org.example.jdbc.starter.port")));
-        //dataSource.setAllowMultiQueries(true);
-        //dataSource.setServerTimezone("Europe/Warsaw");
-        //dataSource.setUseSSL(false);
-        //dataSource.setCharacterEncoding("UTF-8");
+        /*
+        // Przenieś tutaj fragmenty kodu z ConnectionViaDataSource, które parametrzują obiekt DataSource (linijki 25-33
+         */
         logger.info("Connecting to a selected database...");
         return dataSource.getConnection();
     }
