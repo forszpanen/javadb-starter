@@ -49,10 +49,10 @@ public class ConnectionFactory {
         dataSource.setUser(properties.getProperty("org.example.jdbc.starter.user"));
         dataSource.setPassword(properties.getProperty("org.example.jdbc.starter.password"));
         dataSource.setPort(Integer.valueOf(properties.getProperty("org.example.jdbc.starter.port")));
-        //dataSource.setAllowMultiQueries(true);
-        //dataSource.setServerTimezone("Europe/Warsaw");
-        //dataSource.setUseSSL(false);
-        //dataSource.setCharacterEncoding("UTF-8");
+        dataSource.setAllowMultiQueries(true);
+        dataSource.setServerTimezone("Europe/Warsaw");
+        dataSource.setUseSSL(false);
+        dataSource.setCharacterEncoding("UTF-8");
         logger.info("Connecting to a selected database...");
         return dataSource.getConnection();
     }
