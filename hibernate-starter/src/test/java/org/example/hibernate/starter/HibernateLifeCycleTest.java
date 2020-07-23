@@ -117,7 +117,7 @@ public class HibernateLifeCycleTest {
         session.evict(course);
         course.setName("JavaPoz7");
         Query<CourseEntity> query = session.createQuery("FROM CourseEntity WHERE name = 'JavaPoz7'");
-        Assert.assertTrue(query.list().isEmpty());
+//        Assert.assertTrue(query.list().isEmpty());
 
         //dodajemy obiekt z powrotem do kontekstu
         session.update(course);
