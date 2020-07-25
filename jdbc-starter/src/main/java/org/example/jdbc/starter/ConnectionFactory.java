@@ -16,7 +16,7 @@ public class ConnectionFactory {
     private Properties properties;
 
     public ConnectionFactory(String filename) {
-        //this.properties = getDataBaseProperties(filename);
+        this.properties = getDataBaseProperties(filename);
     }
 
     private Properties getDataBaseProperties(String filename) {
@@ -25,7 +25,7 @@ public class ConnectionFactory {
             /**
              * Pobieramy zawartość pliku za pomocą classloadera, plik musi znajdować się w katalogu ustawionym w CLASSPATH
              */
-            ClassLoader classLoader = this.getClass().getClassLoader();
+            ClassLoader classLoader = ConnectionFactory.class.getClassLoader();
             InputStream propertiesStream = classLoader.getResourceAsStream(filename);
             if (propertiesStream == null) {
                 throw new IllegalArgumentException("Can't find file: " + filename);
@@ -44,9 +44,20 @@ public class ConnectionFactory {
 
     public Connection getConnection() throws SQLException {
         MysqlDataSource dataSource = new MysqlDataSource();
-        /*
-        // Przenieś tutaj fragmenty kodu z ConnectionViaDataSource, które parametrzują obiekt DataSource (linijki 25-33
-         */
+        try {
+            dataSource = new MysqlDataSource();
+            dataSource.setServerName(properties.getProperty("org.example.jdbc.starter.server"));
+            dataSource.setDatabaseName(properties.getProperty("org.example.jdbc.starter.name"));
+            dataSource.setUser(properties.getProperty("org.example.jdbc.starter.user"));
+            dataSource.setPassword(properties.getProperty("org.example.jdbc.starter.password"));
+            dataSource.setPort(Integer.valueOf(properties.getProperty("org.example.jdbc.starter.port")));
+            dataSource.setAllowMultiQueries(true);
+            dataSource.setServerTimezone("Europe/Warsaw");
+            dataSource.setUseSSL(false);
+            dataSource.setCharacterEncoding("UTF-8");
+        } catch (SQLException e) {
+            logger.error("Error during creating MysqlDataSource", e);
+        }
         logger.info("Connecting to a selected database...");
         return dataSource.getConnection();
     }
